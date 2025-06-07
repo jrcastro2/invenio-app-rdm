@@ -16,7 +16,7 @@ from .utils.files import send_integrity_report_email
 
 @shared_task()
 def file_integrity_report():
-    """Send a report of uhealthy/missing files to system admins."""
+    """Send a report of unhealthy/missing files to system admins."""
     # First retry verifying files that errored during their last check
     files = FileInstance.query.filter(
         FileInstance.last_check.is_(None),
